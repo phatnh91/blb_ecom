@@ -71,7 +71,6 @@ public class HomePage extends BasePage {
         sleepInSecond(1);
         clickToElementByJS(driver, item);
         waitForPageToLoad(driver);
-        waitPageContentLoaded(driver);
     }
 
     public String getItemTitleByIndex(int index){
