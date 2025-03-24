@@ -1,0 +1,1 @@
+mvn clean test -Dview=10 -Dday=60 -Dsold=yes

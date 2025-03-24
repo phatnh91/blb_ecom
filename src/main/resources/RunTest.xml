@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="etsy">
+    <listeners>
+        <listener class-name="report.ExtentTestListener" />
+        <listener class-name="report.MethodListener"/>
+    </listeners>
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="UIAutomationTest"/>
+        </classes>
+    </test>
+
+
+
+</suite>
