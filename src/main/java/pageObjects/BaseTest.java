@@ -3,6 +3,7 @@ package pageObjects;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -40,13 +41,16 @@ public class BaseTest {
                 driver = new FirefoxDriver(options);
             } else if (browserName.equals("chrome")) {
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--disable-blink-features=AutomationControlled"); // Hides automation flag
+//                options.addArguments("--disable-blink-features=AutomationControlled"); // Hides automation flag
                 options.addArguments("--disable-infobars"); // Hides "Chrome is being controlled..."
                 options.addArguments("--start-maximized");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--no-sandbox");
                 options.setExperimentalOption("debuggerAddress", "localhost:9222");
+                options.addArguments("--disable-blink-features=AutomationControlled");
                 driver = new ChromeDriver(options);
+                ((JavascriptExecutor) driver).executeScript("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})");
+
 
             } else if (browserName.equals("h_chrome")) {
                 ChromeOptions options = new ChromeOptions();
